@@ -1,6 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
+import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
 
 class FormLaw extends PolymerElement {
   static get template() {
@@ -13,7 +14,7 @@ class FormLaw extends PolymerElement {
         <legend>Justitie</legend>
             <div class="inputForm">
                 <label for="crime">Kind in het verleden verdacht geweest van een delict</label>
-                <select name="crime" id="crime">
+                <select on-change="onChangeSelect" name="crime" id="crime">
                     <option value="no">Nee</option>
                     <option value="yes">Ja</option>
                 </select>
@@ -21,7 +22,7 @@ class FormLaw extends PolymerElement {
 
             <div class="inputForm">
                 <label for="halt">Kind in aanraking geweest met bureau HALT voor een delict</label>
-                <select name="halt" id="halt">
+                <select on-change="onChangeSelect" name="halt" id="halt">
                     <option value="no">Nee</option>
                     <option value="yes">Ja</option>
                 </select>
@@ -29,7 +30,7 @@ class FormLaw extends PolymerElement {
 
             <div class="inputForm">
                 <label for="crimeParents">Vader of moeder verdacht van delict in het verleden</label>
-                <select name="crimeParents" id="crimeParents">
+                <select on-change="onChangeSelect" name="crimeParents" id="crimeParents">
                     <option value="no">Nee</option>
                     <option value="yes">Ja</option>
                 </select>
@@ -37,7 +38,7 @@ class FormLaw extends PolymerElement {
 
             <div class="inputForm">
                 <label for="crimeFather">Vader verdacht van delict in het verleden</label>
-                <select name="crimeFather" id="crimeFather">
+                <select on-change="onChangeSelect" name="crimeFather" id="crimeFather">
                     <option value="no">Nee</option>
                     <option value="yes">Ja</option>
                 </select>
@@ -45,7 +46,7 @@ class FormLaw extends PolymerElement {
 
             <div class="inputForm">
                 <label for="crimeMother">Moeder verdacht van delict in het verleden</label>
-                <select name="crimeMother" id="crimeMother">
+                <select on-change="onChangeSelect" name="crimeMother" id="crimeMother">
                     <option value="no">Nee</option>
                     <option value="yes">Ja</option>
                 </select>
@@ -54,6 +55,14 @@ class FormLaw extends PolymerElement {
 
 
     `;
+  }
+  onChangeSelect (event) {
+    const { target } = event
+    const { options } = target
+    const { name: inputName } = target
+    const selectedValue = options[target.selectedIndex].value
+
+    setNewLocalStorage(inputName, selectedValue, "general");
   }
 }
 

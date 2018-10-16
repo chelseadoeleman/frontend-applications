@@ -91,6 +91,11 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         border: none;
       }
 
+      legend {
+        font-size: 1.75em;
+        font-weight: bold;
+      }
+
     </style>
   </template>
 </dom-module>`;

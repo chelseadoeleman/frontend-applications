@@ -1,6 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
+import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
 
 class FormCareer extends PolymerElement {
   static get template() {
@@ -14,7 +15,7 @@ class FormCareer extends PolymerElement {
             <legend>Werk & opleiding kind</legend>
                 <div class="inputForm">
                     <label for="education">Soort onderwijs van het kind</label>
-                    <select name="education" id="education">
+                    <select on-change="onChangeSelect" name="education" id="education">
                         <option value="regular">Regulier onderwijs</option>
                         <option value="nonRegular">Niet-regulier onderwijs</option>
                         <option value="unknown">Onbekend</option>
@@ -23,7 +24,7 @@ class FormCareer extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="educationNow">Huidig onderwijs van het kind</label>
-                    <select name="educationNow" id="educationNow">
+                    <select on-change="onChangeSelect" name="educationNow" id="educationNow">
                         <option value="elementary">Basisonderwijs</option>
                         <option value="basis">Vmbo b/k, mbo 1 en mbo 2</option>
                         <option value="higherBasis">Vmbo g/t, mbo 3 en mbo 4</option>
@@ -35,7 +36,7 @@ class FormCareer extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="educationChange">Verandering in het voortgezet onderwijs niveau</label>
-                    <select name="educationChange" id="educationChange">
+                    <select on-change="onChangeSelect" name="educationChange" id="educationChange">
                         <option value="noChange">Opschalen of gelijkblijvend</option>
                         <option value="down">Afschalen</option>
                         <option value="unknown">Onbekend</option>
@@ -44,7 +45,7 @@ class FormCareer extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="dropout">Voortijdig schoolverlater</label>
-                    <select name="dropout" id="dropout">
+                    <select on-change="onChangeSelect" name="dropout" id="dropout">
                         <option value="resumeEducation">Door in onderwijs</option>
                         <option value="unknown">Onbekend</option>
                         <option value="notApply">Niet van toepassing</option>
@@ -55,7 +56,7 @@ class FormCareer extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="educationLevelFather">Hoogst behaalde onderwijsniveau vader</label>
-                    <select name="educationLevelFather" id="educationLevelFather">
+                    <select on-change="onChangeSelect" name="educationLevelFather" id="educationLevelFather">
                         <option value="elementary">Basisonderwijs</option>
                         <option value="basis">Vmbo b/k, mbo 1 en mbo 2</option>
                         <option value="higherBasis">Vmbo g/t, mbo 3 en mbo 4</option>
@@ -67,7 +68,7 @@ class FormCareer extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="educationLevelMother">Hoogst behaalde onderwijsniveau moeder</label>
-                    <select name="educationLevelMother" id="educationLevelMother">
+                    <select on-change="onChangeSelect" name="educationLevelMother" id="educationLevelMother">
 ]                       <option value="elementary">Basisonderwijs</option>
                         <option value="basis">Vmbo b/k, mbo 1 en mbo 2</option>
                         <option value="higherBasis">Vmbo g/t, mbo 3 en mbo 4</option>
@@ -79,6 +80,15 @@ class FormCareer extends PolymerElement {
 
         </fieldset> 
     `;
+  }
+
+  onChangeSelect (event) {
+    const { target } = event
+    const { options } = target
+    const { name: inputName } = target
+    const selectedValue = options[target.selectedIndex].value
+
+    setNewLocalStorage(inputName, selectedValue, "general");
   }
 }
 

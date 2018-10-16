@@ -1,6 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
+import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
 
 class FormBirth extends PolymerElement {
   static get template() {
@@ -13,7 +14,7 @@ class FormBirth extends PolymerElement {
             <legend>Informatie over de geboorte</legend>
                 <div class="inputForm">
                   <label for="ageMotherBirth">Leeftijd moeder bij geboorte</label>
-                    <select name="ageMotherBirth" id="ageMotherBirth">
+                    <select on-change="onChangeSelect" name="ageMotherBirth" id="ageMotherBirth">
                         <option value="Under20">Jonger dan 20 jaar</option>
                         <option value="Plus20">20 tot 25 jaar</option>
                         <option value="Plus25">25 tot 30 jaar</option>
@@ -25,7 +26,7 @@ class FormBirth extends PolymerElement {
 
             <div class="inputForm">
                 <label for="ageFatherBirth">Leeftijd vader bij geboorte</label>
-                    <select name="ageFatherBirth" id="ageFatherBirth">
+                    <select on-change="onChangeSelect" name="ageFatherBirth" id="ageFatherBirth">
                         <option value="Under20>Jonger dan 25 jaar</option>
                         <option value="Plus20">25 tot 30 jaar</option>
                         <option value="Plus25">30 tot 35 jaar</option>
@@ -36,15 +37,15 @@ class FormBirth extends PolymerElement {
 
             <div class="inputForm">
                 <label for="ageDifference">Leeftijdsverschil moeder en vader</label>
-                    <select name="ageDifference" id="ageDifference">
-                        <option value="Under20>Minder dan 5 jaar</option>
-                        <option value="Plus20">Meer dan 5 jaar</option>
-                    </select>
+                <select on-change="onChangeSelect" name="ageDifference" id="ageDifference">
+                    <option value="Under20>Minder dan 5 jaar</option>
+                    <option value="Plus20">Meer dan 5 jaar</option>
+                </select>
             </div>  
 
             <div class="inputForm">
                 <label for="ethnicity">Herkomst Ouders</label>
-                <select name="ethnicity" id="ethnicity">
+                <select on-change="onChangeSelect" name="ethnicity" id="ethnicity">
                     <option value="Under20>Beide ouders Nederlands</option>
                     <option value="Plus20">Beide ouders niet Nederlands</option>
                     <option value="Plus20">Een ouder Nederlands de ander niet</option>
@@ -53,6 +54,15 @@ class FormBirth extends PolymerElement {
 
         </fieldset>
     `;
+  }
+
+  onChangeSelect (event) {
+    const { target } = event
+    const { options } = target
+    const { name: inputName } = target
+    const selectedValue = options[target.selectedIndex].value
+
+    setNewLocalStorage(inputName, selectedValue, "birth");
   }
 }
 

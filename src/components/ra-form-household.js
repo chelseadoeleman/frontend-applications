@@ -1,6 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
+import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
 
 class FormHousehold extends PolymerElement {
   static get template() {
@@ -14,7 +15,7 @@ class FormHousehold extends PolymerElement {
             <legend>Huishouden gezin</legend>
                 <div class="inputForm">
                     <label for="housing">Soort woning</label>
-                        <select name="housing" id="housing">
+                    <select on-change="onChangeSelect" name="housing" id="housing">
                         <option value="house">Eigen woning</option>
                         <option value="rentalWithAllowance">Huurwoning met huurtoeslag</option>
                         <option value="rentalNoAllowance">Huurwoning zonder huurtoeslag</option>
@@ -24,7 +25,7 @@ class FormHousehold extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="household">Soort woning</label>
-                        <select name="household" id="household">
+                    <select on-change="onChangeSelect" name="household" id="household">
                         <option value="oneParent">Eenouderhuishouden</option>
                         <option value="maariedKids">Gehuwd paar met kinderen</option>
                         <option value="onePersonHousehold">Eenpersoonshuishouden</option>
@@ -39,7 +40,7 @@ class FormHousehold extends PolymerElement {
 
                 <div class="inputForm">
                     <label for="seperated">Ouders gescheiden?</label>
-                    <select name="seperated" id="seperated">
+                    <select on-change="onChangeSelect" name="seperated" id="seperated">
                         <option value="no">Nee</option>
                         <option value="yes">Ja</option>
                     </select>
@@ -47,6 +48,15 @@ class FormHousehold extends PolymerElement {
 
         </fieldset>
     `;
+  }
+
+  onChangeSelect (event) {
+    const { target } = event
+    const { options } = target
+    const { name: inputName } = target
+    const selectedValue = options[target.selectedIndex].value
+
+    setNewLocalStorage(inputName, selectedValue, "general");
   }
 }
 

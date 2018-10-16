@@ -21,6 +21,72 @@ setPassiveTouchGestures(true);
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath);
 
+window.addEventListener("load", () => {
+  const data = window.localStorage.getItem("data") || []
+
+  if (data.length > 0) {
+      // Do something with data
+      console.log('hoi');
+  } else {
+      const dataInput = [
+          {
+            "id": 1,
+            "general": {
+              "firstname": "",
+              "surname": "",
+              "email": "",
+              "genderKid": "",
+              "ageKid": "",
+              "help": ""
+            },
+            "birth": {
+              "ageMotherBirth": "",
+              "ageFatherBirth": "",
+              "ageDifference": "",
+              "ethnicity": ""
+            },
+            "career": {
+              "education": "",
+              "educationNow": "",
+              "educationChange": "",
+              "dropout": "",
+              "educationLevelFather": "",
+              "educationLevelMother": ""
+            },
+            "household": {
+              "housing": "",
+              "household": "",
+              "seperated": ""
+            },
+            "household": {
+              "housing": "",
+              "household": "",
+              "seperated": ""
+            },
+            "mentalHealth": {
+              "support": ""
+            },
+            "socialParticipation": {
+              "socialParticipationFather": "",
+              "socialParticipationMother": "",
+              "statusFather": "",
+              "statusMother": ""
+            },
+            "law": {
+              "crime": "",
+              "halt": "",
+              "crimeParents": "",
+              "crimeFather": "",
+              "crimeMother": ""
+            }
+
+          }
+      ]
+
+      window.localStorage.setItem("data", JSON.stringify(dataInput))
+  }
+})
+
 class RisicoApp extends PolymerElement {
   static get template() {
     return html`
@@ -33,6 +99,12 @@ class RisicoApp extends PolymerElement {
           --app-primary-color: lightblue;
           --app-secondary-color: black;
           display: block;
+        }
+
+        app-drawer {
+          --app-drawer-content-container: {
+            background-color: #a9bed8!important;
+          }
         }
 
         app-drawer-layout:not([narrow]) [drawer-toggle] {
@@ -48,6 +120,11 @@ class RisicoApp extends PolymerElement {
           --paper-icon-button-ink-color: white;
         }
 
+        app-toolbar {
+          color: gray;
+          font-weight: bold;
+        }
+
         .drawer-list {
           margin: 0 20px;
         }
@@ -61,7 +138,7 @@ class RisicoApp extends PolymerElement {
         }
 
         .drawer-list a.iron-selected {
-          color: black;
+          color: white;
           font-weight: bold;
         }
       </style>

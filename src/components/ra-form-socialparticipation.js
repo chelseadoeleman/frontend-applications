@@ -1,6 +1,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
+import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
 
 class FormSocialParticipation extends PolymerElement {
   static get template() {
@@ -13,7 +14,7 @@ class FormSocialParticipation extends PolymerElement {
         <legend>Maatschappelijke participatie ouders</legend>
             <div class="inputForm">
                 <label for="socialParticipationFather">Maatschappelijke participatie van vader</label>
-                <select name="socialParticipationFather" id="socialParticipationFather">
+                <select on-change="onChangeSelect" name="socialParticipationFather" id="socialParticipationFather">
                     <option value="no">Werkend of overig actief</option>
                     <option value="yes">Geen werk en niet actief</option>
                     <option value="unknown">Onbekend</option>
@@ -22,7 +23,7 @@ class FormSocialParticipation extends PolymerElement {
 
             <div class="inputForm">
                 <label for="socialParticipationMother">Maatschappelijke participatie van moeder</label>
-                <select name="socialParticipationMother" id="socialParticipationMother">
+                <select on-change="onChangeSelect" name="socialParticipationMother" id="socialParticipationMother">
                     <option value="no">Werkend of overig actief</option>
                     <option value="yes">Geen werk en niet actief</option>
                     <option value="unknown">Onbekend</option>
@@ -31,7 +32,7 @@ class FormSocialParticipation extends PolymerElement {
 
             <div class="inputForm">
                 <label for="statusFather">Socio economische status van vader</label>
-                <select name="statusFather" id="statusFather">
+                <select on-change="onChangeSelect" name="statusFather" id="statusFather">
                     <option value="welfareRecipient">Bijstandsontvanger</option>
                     <option value="incapacitated">Arbeidsongeschikte</option>
                     <option value="socialServices">Ontvanger overige sociale voorzieningen</option>
@@ -52,7 +53,7 @@ class FormSocialParticipation extends PolymerElement {
 
             <div class="inputForm">
                 <label for="statusMother">Socio economische status van moeder</label>
-                <select name="statusMother" id="statusMother">
+                <select on-change="onChangeSelect" name="statusMother" id="statusMother">
                     <option value="welfareRecipient">Bijstandsontvanger</option>
                     <option value="incapacitated">Arbeidsongeschikte</option>
                     <option value="socialServices">Ontvanger overige sociale voorzieningen</option>
@@ -72,6 +73,14 @@ class FormSocialParticipation extends PolymerElement {
       </fieldset> 
 
     `;
+  }
+  onChangeSelect (event) {
+    const { target } = event
+    const { options } = target
+    const { name: inputName } = target
+    const selectedValue = options[target.selectedIndex].value
+
+    setNewLocalStorage(inputName, selectedValue, "general");
   }
 }
 
