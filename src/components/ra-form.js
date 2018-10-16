@@ -162,7 +162,6 @@ class Form extends PolymerElement {
                 <option value="unknown">Onderwijs onbekend</option>
               </select>
             </div>
-
         </fieldset> 
 
         <fieldset> 
@@ -272,7 +271,6 @@ class Form extends PolymerElement {
               <option value="student">Student</option>
             </select>
           </div>
-
         </fieldset> 
 
         <fieldset>
@@ -316,8 +314,8 @@ class Form extends PolymerElement {
               <option value="yes">Ja</option>
             </select>
           </div>
-
         </fieldset> 
+
       </form>
     `;
   }
