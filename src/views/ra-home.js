@@ -16,7 +16,6 @@ class Homeview extends PolymerElement {
       </style>
 
       <div class="card">
-        <div class="circle">1</div>
         <h1>Home</h1>
         <p>Dit is de hompepage</p>
         
