@@ -1,6 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
-// import '@polymer/app-layout/app-drawer/app-drawer.js';
+import '@polymer/app-layout/app-drawer/app-drawer.js';
 import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
 import '@polymer/app-layout/app-header/app-header.js';
 import '@polymer/app-layout/app-header-layout/app-header-layout.js';
@@ -12,7 +12,6 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import './components/my-icons.js';
-import './stylesheets/app-drawer.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -26,6 +25,10 @@ class RisicoApp extends PolymerElement {
   static get template() {
     return html`
       <style>
+        .app-drawer-list {
+          background-color: #a9bed8;
+        }
+
         :host {
           --app-primary-color: lightblue;
           --app-secondary-color: black;
@@ -37,8 +40,8 @@ class RisicoApp extends PolymerElement {
         }
 
         app-header {
-          color: #fff;
-          background-color: var(--app-primary-color);
+          color: black;
+          background-color: white;
         }
 
         app-header paper-icon-button {
@@ -53,7 +56,7 @@ class RisicoApp extends PolymerElement {
           display: block;
           padding: 0 16px;
           text-decoration: none;
-          color: var(--app-secondary-color);
+          color: white;
           line-height: 40px;
         }
 
@@ -75,8 +78,13 @@ class RisicoApp extends PolymerElement {
           <app-toolbar>Menu</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="home" href="[[rootPath]]home">Home</a>
-            <a name="detail" href="[[rootPath]]detail">Detailpage</a>
-            <a name="riskcalculator" href="[[rootPath]]riskcalculator">Risico berekenen</a>
+            <a name="general" href="[[rootPath]]general">Algemeen</a>
+            <a name="birth" href="[[rootPath]]birth">Geboorte kind</a>
+            <a name="career" href="[[rootPath]]career">Werk & opleiding</a>
+            <a name="household" href="[[rootPath]]household">Huishouden</a>
+            <a name="mentalHealth" href="[[rootPath]]mentalHealth">Geestelijke gezondheid</a>
+            <a name="socialParticipation" href="[[rootPath]]socialParticipation">Maatschappelijke participatie</a>
+            <a name="law" href="[[rootPath]]law">Justitie</a>
           </iron-selector>
         </app-drawer>
 
@@ -95,8 +103,13 @@ class RisicoApp extends PolymerElement {
               attr-for-selected="name" 
               role="main">
             <ra-home name="home"></ra-home>
-            <ra-detail name="detail"></ra-detail>
-            <ra-riskcalculator name="riskcalculator"></ra-riskcalculator>
+            <ra-general name="general"></ra-general>
+            <ra-birth name="birth"></ra-birth>
+            <ra-career name="career"></ra-career>
+            <ra-household name="household"></ra-household>
+            <ra-mentalHealth name="mentalHealth"></ra-mentalHealth>
+            <ra-socialParticipation name="socialParticipation"></ra-socialParticipation>
+            <ra-law name="law"></ra-law>
             <ra-404 name="404"></ra-404>
           </iron-pages>
         </app-header-layout>
@@ -129,7 +142,7 @@ class RisicoApp extends PolymerElement {
      // Show 'home' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
       this.page = 'home';
-    } else if (['home', 'detail', 'riskcalculator'].indexOf(page) !== -1) {
+    } else if (['home', 'general', 'birth', 'career', 'household', 'mentalHealth', 'socialParticipation', 'law'].indexOf(page) !== -1) {
       this.page = page;
     } else {
       this.page = '404';
@@ -150,11 +163,26 @@ class RisicoApp extends PolymerElement {
       case 'home':
         import('./views/ra-home.js');
         break;
-      case 'detail':
-        import('./views/ra-detail.js');
+      case 'general':
+        import('./views/ra-general.js');
         break;
-      case 'riskcalculator':
-        import('./views/ra-riskcalculator.js');
+      case 'birth':
+        import('./views/ra-birth.js');
+        break;
+      case 'career':
+        import('./views/ra-career.js');
+        break;
+      case 'household':
+        import('./views/ra-household.js');
+        break;
+      case 'mentalHealth':
+        import('./views/ra-mentalhealth.js');
+        break;
+      case 'socialParticipation':
+        import('./views/ra-socialparticipation.js');
+        break;
+      case 'law':
+        import('./views/ra-law.js');
         break;
       case '404':
         import('./views/ra-404.js');

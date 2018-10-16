@@ -1,7 +1,6 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '../components/ra-component.js';
 import '../components/ra-property.js';
-import '../components/ra-form.js';
 import '../stylesheets/shared-styles.js';
 
 class Homeview extends PolymerElement {
@@ -21,7 +20,6 @@ class Homeview extends PolymerElement {
         
         <ra-component></ra-component>
         <ra-property greeting="hoi"></ra-property>
-        <ra-form></ra-form>
       </div>
     `;
   }

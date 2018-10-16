@@ -4,6 +4,7 @@ const $_documentContainer = document.createElement('template');
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
+
       .card {
         margin: 24px;
         padding: 16px;
@@ -85,6 +86,10 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         border-style: none;
         background: lightblue;
       } 
+
+      fieldset {
+        border: none;
+      }
 
     </style>
   </template>
