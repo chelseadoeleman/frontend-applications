@@ -121,7 +121,7 @@ class RisicoApp extends PolymerElement {
         }
 
         app-toolbar {
-          color: gray;
+          color: black;
           font-weight: bold;
         }
 

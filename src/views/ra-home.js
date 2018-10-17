@@ -20,9 +20,16 @@ class Homeview extends PolymerElement {
         
         <ra-component></ra-component>
         <ra-property greeting="hoi"></ra-property>
+        <button on-click="clickReset">Begin opnieuw met invullen</button> 
       </div>
     `;
   }
+
+  clickReset() {
+    window.localStorage.clear();
+    location.reload();
+  }
+
 }
 
 window.customElements.define('ra-home', Homeview);

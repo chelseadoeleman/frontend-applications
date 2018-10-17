@@ -64,6 +64,9 @@ class FormLaw extends PolymerElement {
 
     setNewLocalStorage(inputName, selectedValue, "general");
   }
+
+  
+
 }
 
 window.customElements.define('ra-form-law', FormLaw);
