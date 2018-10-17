@@ -103,13 +103,13 @@ class FormGeneral extends PolymerElement {
         const select = this.shadowRoot.getElementById(inputNames)
         // get local storage 
         const valueLocalStorage = getLocalStorageValue('general', inputNames)
-        console.log(valueLocalStorage)
+        // console.log(valueLocalStorage)
 
         if (valueLocalStorage) {
             select.value = valueLocalStorage
         }
     })
-}
+  }
 
 
 }

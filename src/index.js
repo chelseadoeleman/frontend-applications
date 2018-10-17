@@ -12,6 +12,7 @@ import '@polymer/iron-pages/iron-pages.js';
 import '@polymer/iron-selector/iron-selector.js';
 import '@polymer/paper-icon-button/paper-icon-button.js';
 import './components/my-icons.js';
+import { riskAssessmentToWindow } from './helpers/RiskAssessmentToWindow.js';
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
@@ -24,62 +25,60 @@ setRootPath(MyAppGlobals.rootPath);
 window.addEventListener("load", () => {
   const data = window.localStorage.getItem("data") || []
 
-  if (data.length > 0) {
-      // Do something with data
-      console.log('hoi');
-  } else {
-      const dataInput = [
-          {
-            "id": 1,
-            "general": {
-              "firstname": "",
-              "surname": "",
-              "email": "",
-              "genderKid": "",
-              "ageKid": "",
-              "help": ""
-            },
-            "birth": {
-              "ageMotherBirth": "",
-              "ageFatherBirth": "",
-              "ageDifference": "",
-              "ethnicity": ""
-            },
-            "career": {
-              "education": "",
-              "educationNow": "",
-              "educationChange": "",
-              "dropout": "",
-              "educationLevelFather": "",
-              "educationLevelMother": ""
-            },
-            "household": {
-              "housing": "",
-              "household": "",
-              "seperated": ""
-            },
-            "mentalHealth": {
-              "support": ""
-            },
-            "socialParticipation": {
-              "socialParticipationFather": "",
-              "socialParticipationMother": "",
-              "statusFather": "",
-              "statusMother": ""
-            },
-            "law": {
-              "crime": "",
-              "halt": "",
-              "crimeParents": "",
-              "crimeFather": "",
-              "crimeMother": ""
-            }
+  if (!data.length > 0) {
+    const dataInput = [
+      {
+        "id": 1,
+        "general": {
+          "firstname": "",
+          "surname": "",
+          "email": "",
+          "genderKid": "",
+          "ageKid": "",
+          "help": ""
+        },
+        "birth": {
+          "ageMotherBirth": "",
+          "ageFatherBirth": "",
+          "ageDifference": "",
+          "ethnicity": ""
+        },
+        "career": {
+          "education": "",
+          "educationNow": "",
+          "educationChange": "",
+          "dropout": "",
+          "educationLevelFather": "",
+          "educationLevelMother": ""
+        },
+        "household": {
+          "housing": "",
+          "household": "",
+          "seperated": ""
+        },
+        "mentalHealth": {
+          "support": ""
+        },
+        "socialParticipation": {
+          "socialParticipationFather": "",
+          "socialParticipationMother": "",
+          "statusFather": "",
+          "statusMother": ""
+        },
+        "law": {
+          "crime": "",
+          "halt": "",
+          "crimeParents": "",
+          "crimeFather": "",
+          "crimeMother": ""
+        }
 
-          }
-      ]
-
-      window.localStorage.setItem("data", JSON.stringify(dataInput))
+      }
+  ]
+  window.localStorage.setItem("data", JSON.stringify(dataInput))
   }
+  riskAssessmentToWindow() 
+
 })
 
 class RisicoApp extends PolymerElement {
