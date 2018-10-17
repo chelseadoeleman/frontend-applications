@@ -1,7 +1,7 @@
 export const setNewLocalStorage = (inputName, selectedValue, keyValue) => {
     const data = window.localStorage.getItem('data') || [];
     try {
-      //Parse data to Javascript
+      //Parse JS to JSON 
       const parsedData = JSON.parse(data);
       //Set default data
       parsedData[0][keyValue][inputName] = selectedValue;
