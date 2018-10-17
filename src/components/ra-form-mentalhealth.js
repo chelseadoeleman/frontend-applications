@@ -1,7 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
-import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
+import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
 
 
 class FormMentalHealth extends PolymerElement {
@@ -31,15 +32,29 @@ class FormMentalHealth extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "general");
+    setNewLocalStorage(inputName, selectedValue, "mentalHealth");
   }
-  
-  onChange(event){
-    const target = event.target;
-    const options = event.options;
-    const selected = options[target.selectedIndex].value;
-    console.log(selected);
-  }
+
+  ready () {
+    super.ready()
+
+    const inputNames = [
+        "support"
+    ]
+
+    // loop over inputNames, get all inputNames
+    inputNames.map(inputNames => {
+        // acces via shadowRoot html elements with inputNames
+        const select = this.shadowRoot.getElementById(inputNames)
+        // get local storage 
+        const valueLocalStorage = getLocalStorageValue('mentalHealth', inputNames)
+        console.log(valueLocalStorage)
+
+        if (valueLocalStorage) {
+            select.value = valueLocalStorage
+        }
+    })
+}
 
 }
 

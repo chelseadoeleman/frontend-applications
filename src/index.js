@@ -58,11 +58,6 @@ window.addEventListener("load", () => {
               "household": "",
               "seperated": ""
             },
-            "household": {
-              "housing": "",
-              "household": "",
-              "seperated": ""
-            },
             "mentalHealth": {
               "support": ""
             },

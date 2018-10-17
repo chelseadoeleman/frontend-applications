@@ -1,7 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
-import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
+import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
 
 class FormBirth extends PolymerElement {
   static get template() {
@@ -64,6 +65,30 @@ class FormBirth extends PolymerElement {
 
     setNewLocalStorage(inputName, selectedValue, "birth");
   }
+
+  ready () {
+    super.ready()
+
+    const inputNames = [
+        "ageMotherBirth",
+        "ageFatherBirth",
+        "ageDifference",
+        "ethnicity"
+    ]
+
+    // loop over inputNames, get all inputNames
+    inputNames.map(inputNames => {
+        // acces via shadowRoot html elements with inputNames
+        const select = this.shadowRoot.getElementById(inputNames)
+        // get local storage 
+        const valueLocalStorage = getLocalStorageValue('birth', inputNames)
+        console.log(valueLocalStorage)
+
+        if (valueLocalStorage) {
+            select.value = valueLocalStorage
+        }
+    })
+}
 }
 
 window.customElements.define('ra-form-birth', FormBirth);

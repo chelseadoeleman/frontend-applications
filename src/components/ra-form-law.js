@@ -1,7 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
-import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
+import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
 
 class FormLaw extends PolymerElement {
   static get template() {
@@ -62,10 +63,33 @@ class FormLaw extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "general");
+    setNewLocalStorage(inputName, selectedValue, "law");
   }
 
-  
+  ready () {
+    super.ready()
+
+    const inputNames = [
+        "crime",
+        "halt",
+        "crimeParents",
+        "crimeFather",
+        "crimeMother"
+    ]
+
+    // loop over inputNames, get all inputNames
+    inputNames.map(inputNames => {
+        // acces via shadowRoot html elements with inputNames
+        const select = this.shadowRoot.getElementById(inputNames)
+        // get local storage 
+        const valueLocalStorage = getLocalStorageValue('law', inputNames)
+        console.log(valueLocalStorage)
+
+        if (valueLocalStorage) {
+            select.value = valueLocalStorage
+        }
+    })
+}
 
 }
 

@@ -1,7 +1,8 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import './ra-label.js';
 import '../stylesheets/shared-styles.js';
-import {setNewLocalStorage} from '../helpers/setNewLocalStorage.js';
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
+import {getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
 
 class FormSocialParticipation extends PolymerElement {
   static get template() {
@@ -80,8 +81,32 @@ class FormSocialParticipation extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "general");
+    setNewLocalStorage(inputName, selectedValue, "socialParticipation");
   }
+
+  ready () {
+    super.ready()
+
+    const inputNames = [
+        "socialParticipationFather",
+        "socialParticipationMother",
+        "statusFather",
+        "statusMother"
+    ]
+
+    // loop over inputNames, get all inputNames
+    inputNames.map(inputNames => {
+        // acces via shadowRoot html elements with inputNames
+        const select = this.shadowRoot.getElementById(inputNames)
+        // get local storage 
+        const valueLocalStorage = getLocalStorageValue("socialParticipation", inputNames)
+        console.log(valueLocalStorage)
+
+        if (valueLocalStorage) {
+            select.value = valueLocalStorage
+        }
+    })
+}
 }
 
 window.customElements.define('ra-form-socialparticipation', FormSocialParticipation);
