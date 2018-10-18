@@ -7,11 +7,15 @@ import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
 class FormBirth extends PolymerElement {
   static get template() {
     return html`
-      <style  include="shared-styles">
-
-      </style>
+        <style  include="shared-styles">
     
-      <fieldset>
+        </style>
+
+        <div class="riskAssessment">
+            <ra-risk-assessment></ra-risk-assessment>
+        </div>
+    
+        <fieldset>
             <legend>Informatie over de geboorte</legend>
                 <div class="inputForm">
                   <label for="ageMotherBirth">Leeftijd moeder bij geboorte</label>

@@ -7,11 +7,14 @@ import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
 class FormGeneral extends PolymerElement {
   static get template() {
     return html`
-      <style  include="shared-styles">
-
-      </style>
+        <style  include="shared-styles">
     
-      <form action="#" method:"post">    
+        </style>
+
+        <div class="riskAssessment">
+            <ra-risk-assessment></ra-risk-assessment>
+        </div>
+   
         <fieldset>  
           <legend>Algemene informatie over het kind</legend>
         
@@ -57,8 +60,6 @@ class FormGeneral extends PolymerElement {
               </select>
             </div>
         </fieldset>
-
-      </form>
     `;
   }
 

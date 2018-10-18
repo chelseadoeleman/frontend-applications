@@ -9,12 +9,6 @@ class RiskAssessment extends PolymerElement {
     return html`
         <style include="shared-styles">
 
-        h2{
-            color: black;
-            font-size: 2em;
-            font-weight: bold;
-        }
-
         </style>
         
         <h2 class="RiskPercentage">[[calculateRiskPercentage()]]%</h2>

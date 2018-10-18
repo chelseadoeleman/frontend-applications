@@ -13,7 +13,7 @@ class FormMentalHealth extends PolymerElement {
 
         </style>
         
-        <div class="card">
+        <div class="riskAssessment">
             <ra-risk-assessment></ra-risk-assessment>
         </div>
         <fieldset>

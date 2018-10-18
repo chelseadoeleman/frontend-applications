@@ -14,6 +14,16 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
       }
 
+      .riskAssessment {
+        background-image: linear-gradient(180deg,#5b769e, #5480af);
+        position: sticky;
+        margin-left: -1em;
+        margin-right: -1em;
+        margin-bottom: 24px;
+        padding: 7px;
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      }
+
       .circle {
         display: inline-block;
         width: 64px;
@@ -30,6 +40,13 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         margin: 16px 0;
         color: #212121;
         font-size: 22px;
+      }
+
+      h2 {
+        font-size: 5em;
+        color: #ffffff;
+        text-align: center;
+        font-family: mono45-headline, monospace;
       }
 
       .inputForm {
@@ -92,6 +109,7 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
 
       legend {
+        font-family: mono45-headline, monospace;
         font-size: 1.75em;
         font-weight: bold;
       }

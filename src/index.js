@@ -115,8 +115,9 @@ class RisicoApp extends PolymerElement {
         }
 
         app-toolbar {
-          color: black;
-          font-weight: bold;
+          color: #2c4370;
+          font-family: mono45-headline, monospace;
+          font-size: 1.5em;
         }
 
         .drawer-list {
@@ -146,7 +147,7 @@ class RisicoApp extends PolymerElement {
       <app-drawer-layout fullbleed="" narrow="{{narrow}}">
         <!-- Drawer content -->
         <app-drawer id="drawer" slot="drawer" swipe-open="[[narrow]]">
-          <app-toolbar>Menu</app-toolbar>
+          <app-toolbar>Categorieën</app-toolbar>
           <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
             <a name="home" href="[[rootPath]]home">Home</a>
             <a name="general" href="[[rootPath]]general">Algemeen</a>

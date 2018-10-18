@@ -10,6 +10,10 @@ class FormCareer extends PolymerElement {
       <style  include="shared-styles">
 
       </style>
+        
+        <div class="riskAssessment">
+            <ra-risk-assessment></ra-risk-assessment>
+        </div>
     
         <fieldset>
 
