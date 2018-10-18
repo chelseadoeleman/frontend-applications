@@ -1,8 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './ra-label.js';
-import '../stylesheets/shared-styles.js';
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
+import './ra-label.js'
+import '../stylesheets/shared-styles.js'
+import './ra-risk-assessment.js'
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
+import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
+import { setValueToFactor } from '../helpers/setValueToFactor.js'
 
 class FormHousehold extends PolymerElement {
   static get template() {
@@ -32,7 +34,7 @@ class FormHousehold extends PolymerElement {
                     <label for="household">Soort woning</label>
                     <select on-change="onChangeSelect" name="household" id="household">
                         <option value="oneParent">Eenouderhuishouden</option>
-                        <option value="maariedKids">Gehuwd paar met kinderen</option>
+                        <option value="marriedKids">Gehuwd paar met kinderen</option>
                         <option value="onePersonHousehold">Eenpersoonshuishouden</option>
                         <option value="unmarriedKids">Niet-gehuwd paar met kinderen</option>
                         <option value="marriedNoKids">Gehuwd paar zonder kinderen</option>
@@ -61,7 +63,55 @@ class FormHousehold extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "household");
+    setNewLocalStorage(inputName, selectedValue, "household")
+
+    if (inputName === "housing") {
+        if (selectedValue === "house") {
+            setValueToFactor(inputName, 0)
+        } else if (selectedValue === "rentalWithAllowance") {
+            setValueToFactor(inputName, 0.3840103)
+        } else if (selectedValue === "rentalNoAllowance") {
+            setValueToFactor(inputName, 0.40420458)
+        }  else {
+            setValueToFactor(inputName, 2.40126358)
+        }
+    } else if (inputName === "household") {
+        if (selectedValue === "oneParent") {
+            setValueToFactor(inputName, 0.49608469)
+        } else if (selectedValue === "marriedKids") {
+            setValueToFactor(inputName, 0)
+        }else if (selectedValue === "onePersonHousehold") {
+            setValueToFactor(inputName, 1.7185851)
+        } else if (selectedValue === "unmarriedKids") {
+            setValueToFactor(inputName, 0.32693636)
+        } else if (selectedValue === "marriedNoKids") {
+            setValueToFactor(inputName, 1.06108193)
+        } else if (selectedValue === "institutional") {
+            setValueToFactor(inputName, 1.92321053)
+        } else if (selectedValue === "unmarriedNoKids") {
+            setValueToFactor(inputName, -14.15530169)
+        } else if (selectedValue === "remaining") {
+            setValueToFactor(inputName, 0.91364613)
+        } else {
+            setValueToFactor(inputName, -13.81002181)
+        }
+    } else if (inputName === "seperated") {
+        if (selectedValue === "no") {
+            setValueToFactor(inputName, 0)
+        } else {
+            setValueToFactor(inputName, 0.27683414)
+        }
+    } else {
+        setValueToFactor(inputName, 0)
+    }
+
+    try {
+        window.localStorage.setItem("factors", JSON.stringify(window.factors))
+        // triggers an event, which in this case is fake
+        document.dispatchEvent(new Event ("launchEvent"))
+    } catch (error) {
+        throw new Error (error)
+    }
   }
 
   ready () {

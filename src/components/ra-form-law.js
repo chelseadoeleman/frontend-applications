@@ -1,8 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './ra-label.js';
-import '../stylesheets/shared-styles.js';
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
+import './ra-label.js'
+import '../stylesheets/shared-styles.js'
+import './ra-risk-assessment.js'
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
+import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
+import { setValueToFactor } from '../helpers/setValueToFactor.js'
 
 class FormLaw extends PolymerElement {
   static get template() {
@@ -68,6 +70,36 @@ class FormLaw extends PolymerElement {
     const selectedValue = options[target.selectedIndex].value
 
     setNewLocalStorage(inputName, selectedValue, "law");
+
+    if (inputName === "crime") {
+        if (selectedValue === "no") {
+            setValueToFactor(inputName, 0)
+        } else {
+            setValueToFactor(inputName, 0.94737545)
+        }
+    } else if (inputName === "halt") {
+        if (selectedValue === "no") {
+            setValueToFactor(inputName, 0)
+        } else {
+            setValueToFactor(inputName, 0.36448201)
+        }
+    } else if (inputName === "crimeParents") {
+        if (selectedValue === "no") {
+            setValueToFactor(inputName, 0)
+        } else {
+            setValueToFactor(inputName, 0.50027131)
+        }
+    } else {
+        setValueToFactor(inputName, 0)
+    }
+
+    try {
+        window.localStorage.setItem("factors", JSON.stringify(window.factors))
+        // triggers an event, which in this case is fake
+        document.dispatchEvent(new Event ("launchEvent"))
+    } catch (error) {
+        throw new Error (error)
+    }
   }
 
   ready () {

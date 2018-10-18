@@ -1,18 +1,18 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
-import '@polymer/app-layout/app-drawer/app-drawer.js';
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js';
-import '@polymer/app-layout/app-header/app-header.js';
-import '@polymer/app-layout/app-header-layout/app-header-layout.js';
-import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js';
-import '@polymer/app-layout/app-toolbar/app-toolbar.js';
-import '@polymer/app-route/app-location.js';
-import '@polymer/app-route/app-route.js';
-import '@polymer/iron-pages/iron-pages.js';
-import '@polymer/iron-selector/iron-selector.js';
-import '@polymer/paper-icon-button/paper-icon-button.js';
-import './components/my-icons.js';
-import { riskAssessmentToWindow } from './helpers/RiskAssessmentToWindow.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
+import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js'
+import '@polymer/app-layout/app-drawer/app-drawer.js'
+import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js'
+import '@polymer/app-layout/app-header/app-header.js'
+import '@polymer/app-layout/app-header-layout/app-header-layout.js'
+import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js'
+import '@polymer/app-layout/app-toolbar/app-toolbar.js'
+import '@polymer/app-route/app-location.js'
+import '@polymer/app-route/app-route.js'
+import '@polymer/iron-pages/iron-pages.js'
+import '@polymer/iron-selector/iron-selector.js'
+import '@polymer/paper-icon-button/paper-icon-button.js'
+import './components/my-icons.js'
+import { riskAssessmentToWindow } from './helpers/RiskAssessmentToWindow.js'
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.

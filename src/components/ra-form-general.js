@@ -1,8 +1,11 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './ra-label.js';
-import '../stylesheets/shared-styles.js';
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import './ra-risk-assessment.js'
+import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
+import { getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
+import { setValueToFactor } from '../helpers/setValueToFactor.js'
+
 
 class FormGeneral extends PolymerElement {
   static get template() {
@@ -55,8 +58,8 @@ class FormGeneral extends PolymerElement {
             <div class="inputForm">
             <label for="help">Hulptraject</label>
               <select on-change="onChangeSelect" name="help" id="help">
-                <option value="Under20>Geen jeugdhulp zonder verblijf gehad</option>
-                <option value="Plus20">Jeugdhulp zonder verblijf gehad</option>
+                <option value="noHelp">Geen jeugdhulp zonder verblijf gehad</option>
+                <option value="help">Jeugdhulp zonder verblijf gehad</option>
               </select>
             </div>
         </fieldset>
@@ -73,6 +76,30 @@ class FormGeneral extends PolymerElement {
     const selectedValue = options[target.selectedIndex].value
 
     setNewLocalStorage(inputName, selectedValue, "general");
+
+    if (inputName === "genderKid") {
+      if (selectedValue === "man") {
+          setValueToFactor(inputName, -0.12610868)
+      } else {
+          setValueToFactor(inputName, 0)
+      }
+    } else if (inputName === "help") {
+      if (selectedValue === "noHelp") {
+          setValueToFactor(inputName, 0)
+      } else {
+          setValueToFactor(inputName, 1.52773741)
+      }
+    } else {
+      setValueToFactor(inputName, 0)
+    }
+
+    try {
+        window.localStorage.setItem("factors", JSON.stringify(window.factors))
+        // triggers an event, which in this case is fake
+        document.dispatchEvent(new Event ("launchEvent"))
+    } catch (error) {
+        throw new Error (error)
+    }
   }
 
   onChangeInput (event) {
@@ -103,7 +130,7 @@ class FormGeneral extends PolymerElement {
         // acces via shadowRoot html elements with inputNames
         const select = this.shadowRoot.getElementById(inputNames)
         // get local storage 
-        const valueLocalStorage = getLocalStorageValue('general', inputNames)
+        const valueLocalStorage = getLocalStorageValue("general", inputNames)
         // console.log(valueLocalStorage)
 
         if (valueLocalStorage) {
@@ -115,4 +142,4 @@ class FormGeneral extends PolymerElement {
 
 }
 
-window.customElements.define('ra-form-general', FormGeneral);
+window.customElements.define("ra-form-general", FormGeneral);

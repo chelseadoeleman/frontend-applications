@@ -47,9 +47,9 @@ class FormMentalHealth extends PolymerElement {
     }
 
     try {
-        window.localStorage.setItem('factors', JSON.stringify(window.factors))
-        // triggers an event, which in this is case is fake
-        document.dispatchEvent(new Event ('launchEvent'))
+        window.localStorage.setItem("factors", JSON.stringify(window.factors))
+        // triggers an event, which in this case is fake
+        document.dispatchEvent(new Event ("launchEvent"))
     } catch (error) {
         throw new Error (error)
     }
@@ -68,7 +68,7 @@ class FormMentalHealth extends PolymerElement {
         // acces via shadowRoot html elements with inputNames
         const select = this.shadowRoot.getElementById(inputNames)
         // get local storage 
-        const valueLocalStorage = getLocalStorageValue('mentalHealth', inputNames)
+        const valueLocalStorage = getLocalStorageValue("mentalHealth", inputNames)
 
         if (valueLocalStorage) {
             select.value = valueLocalStorage

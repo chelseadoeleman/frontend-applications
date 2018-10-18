@@ -29,10 +29,12 @@ class RiskAssessment extends PolymerElement {
       // launch fake event
       document.addEventListener('launchEvent', () => {
             const shadowDomNode = this.shadowRoot.querySelector('.RiskPercentage')
+            console.log(shadowDomNode)
                 try {
                     // retrigger calculation when another option is clicked
                     const calculatePercentage = calculateRiskAssessment(JSON.parse(window.localStorage.getItem('factors')))
                     // add to h2
+                    console.log(calculatePercentage)
                     shadowDomNode.textContent = `${calculatePercentage}%`
                 } catch (error) {
                     throw new Error (error)

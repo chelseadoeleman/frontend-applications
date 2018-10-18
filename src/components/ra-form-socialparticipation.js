@@ -1,8 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './ra-label.js';
-import '../stylesheets/shared-styles.js';
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js';
-import {getLocalStorageValue } from '../helpers/getLocalStorageValue.js';
+import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
+import './ra-label.js'
+import '../stylesheets/shared-styles.js'
+import './ra-risk-assessment.js'
+import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
+import {getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
+import { setValueToFactor } from '../helpers/setValueToFactor.js'
 
 class FormSocialParticipation extends PolymerElement {
   static get template() {
@@ -20,8 +22,8 @@ class FormSocialParticipation extends PolymerElement {
             <div class="inputForm">
                 <label for="socialParticipationFather">Maatschappelijke participatie van vader</label>
                 <select on-change="onChangeSelect" name="socialParticipationFather" id="socialParticipationFather">
-                    <option value="no">Werkend of overig actief</option>
-                    <option value="yes">Geen werk en niet actief</option>
+                    <option value="work">Werkend of overig actief</option>
+                    <option value="noWork">Geen werk en niet actief</option>
                     <option value="unknown">Onbekend</option>
                 </select>
             </div>
@@ -29,8 +31,8 @@ class FormSocialParticipation extends PolymerElement {
             <div class="inputForm">
                 <label for="socialParticipationMother">Maatschappelijke participatie van moeder</label>
                 <select on-change="onChangeSelect" name="socialParticipationMother" id="socialParticipationMother">
-                    <option value="no">Werkend of overig actief</option>
-                    <option value="yes">Geen werk en niet actief</option>
+                    <option value="work">Werkend of overig actief</option>
+                    <option value="noWork">Geen werk en niet actief</option>
                     <option value="unknown">Onbekend</option>
                 </select>
             </div>
@@ -86,6 +88,34 @@ class FormSocialParticipation extends PolymerElement {
     const selectedValue = options[target.selectedIndex].value
 
     setNewLocalStorage(inputName, selectedValue, "socialParticipation");
+
+    if (inputName === "socialParticipationFather") {
+        if (selectedValue === "work") {
+            setValueToFactor(inputName, 0)
+        } else if (selectedValue === "noWork") {
+            setValueToFactor(inputName, 0.33771646)
+        } else {
+            setValueToFactor(inputName, 0.23485558)
+        }
+    } else if (inputName === "socialParticipationMother") {
+        if (selectedValue === "work") {
+            setValueToFactor(inputName, 0)
+        } else if (selectedValue === "noWork") {
+            setValueToFactor(inputName, 0.36957624)
+        } else {
+            setValueToFactor(inputName, -0.95012155)
+        }
+    } else {
+        setValueToFactor(inputName, 0)
+    }
+
+    try {
+        window.localStorage.setItem("factors", JSON.stringify(window.factors))
+        // triggers an event, which in this case is fake
+        document.dispatchEvent(new Event ("launchEvent"))
+    } catch (error) {
+        throw new Error (error)
+    }
   }
 
   ready () {
