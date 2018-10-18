@@ -1,6 +1,6 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '../stylesheets/shared-styles.js';
-import '../components/ra-form-career.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "../stylesheets/shared-styles.js"
+import "../components/ra-form-career.js"
 
 class Career extends PolymerElement {
   static get template() {
@@ -16,8 +16,8 @@ class Career extends PolymerElement {
       <form action="#" method-"post">
         <ra-form-career></ra-form-career>
       </form>
-    `;
+    `
   }
 }
 
-window.customElements.define('ra-career', Career);
+window.customElements.define("ra-career", Career)

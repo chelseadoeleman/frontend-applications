@@ -1,4 +1,4 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import {PolymerElement, html} from "@polymer/polymer/polymer-element.js"
 
 export class Property extends PolymerElement {
   static get template() {
@@ -6,7 +6,7 @@ export class Property extends PolymerElement {
     <div class="card">
         <h2>[[greeting]]</h2>
       </div>
-    `;
+    `
   }
 
   static get properties() {
@@ -18,9 +18,9 @@ export class Property extends PolymerElement {
   }
 
   constructor() {
-    super();
+    super()
     this.greeting = "Hello!"
   }
 
 }
-customElements.define('ra-property', Property);
+customElements.define("ra-property", Property)

@@ -1,6 +1,6 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '../stylesheets/shared-styles.js';
-import '../components/ra-form-mentalhealth.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "../stylesheets/shared-styles.js"
+import "../components/ra-form-mentalhealth.js"
 
 class MentalHealth extends PolymerElement {
   static get template() {
@@ -16,8 +16,8 @@ class MentalHealth extends PolymerElement {
       <form action="#" method-"post">
         <ra-form-mentalhealth></ra-form-mentalhealth>
       </form>
-    `;
+    `
   }
 }
 
-window.customElements.define('ra-mentalhealth', MentalHealth);
+window.customElements.define("ra-mentalhealth", MentalHealth)

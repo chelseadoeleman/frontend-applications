@@ -1,10 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
-import './ra-label.js'
-import '../stylesheets/shared-styles.js'
-import './ra-risk-assessment.js'
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
-import { setValueToFactor } from '../helpers/setValueToFactor.js'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import "./ra-risk-assessment.js"
+import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
+import { getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
+import { setValueToFactor } from "../helpers/setValueToFactor.js"
 
 class FormMentalHealth extends PolymerElement {
   static get template() {
@@ -27,7 +27,7 @@ class FormMentalHealth extends PolymerElement {
                 </div>
         </fieldset> 
 
-    `;
+    `
   }
 
   onChangeSelect (event) {
@@ -78,4 +78,4 @@ class FormMentalHealth extends PolymerElement {
 
 }
 
-window.customElements.define('ra-form-mentalhealth', FormMentalHealth);
+window.customElements.define("ra-form-mentalhealth", FormMentalHealth)

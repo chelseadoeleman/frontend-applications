@@ -1,10 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
-import './ra-label.js'
-import '../stylesheets/shared-styles.js'
-import './ra-risk-assessment.js'
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
-import { setValueToFactor } from '../helpers/setValueToFactor.js'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import "./ra-risk-assessment.js"
+import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
+import { getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
+import { setValueToFactor } from "../helpers/setValueToFactor.js"
 
 class FormLaw extends PolymerElement {
   static get template() {
@@ -61,7 +61,7 @@ class FormLaw extends PolymerElement {
         </fieldset> 
 
 
-    `;
+    `
   }
   onChangeSelect (event) {
     const { target } = event
@@ -69,7 +69,7 @@ class FormLaw extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "law");
+    setNewLocalStorage(inputName, selectedValue, "law")
 
     if (inputName === "crime") {
         if (selectedValue === "no") {
@@ -118,7 +118,7 @@ class FormLaw extends PolymerElement {
         // acces via shadowRoot html elements with inputNames
         const select = this.shadowRoot.getElementById(inputNames)
         // get local storage 
-        const valueLocalStorage = getLocalStorageValue('law', inputNames)
+        const valueLocalStorage = getLocalStorageValue("law", inputNames)
         console.log(valueLocalStorage)
 
         if (valueLocalStorage) {
@@ -129,4 +129,4 @@ class FormLaw extends PolymerElement {
 
 }
 
-window.customElements.define('ra-form-law', FormLaw);
+window.customElements.define("ra-form-law", FormLaw);

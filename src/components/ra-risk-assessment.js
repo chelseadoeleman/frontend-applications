@@ -1,7 +1,7 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './ra-label.js';
-import '../stylesheets/shared-styles.js';
-import { calculateRiskAssessment } from '../helpers/calculateRiskAssessment'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import { calculateRiskAssessment } from "../helpers/calculateRiskAssessment"
 
 
 class RiskAssessment extends PolymerElement {
@@ -11,28 +11,30 @@ class RiskAssessment extends PolymerElement {
 
         </style>
         
-        <h2 class="RiskPercentage">[[calculateRiskPercentage()]]%</h2>
+        <h2 class="RiskPercentage">
+            [[calculateRiskPercentage()]]%
+        </h2>
 
-    `;
+    `
   }
 
   calculateRiskPercentage () {
-      try {
-          return calculateRiskAssessment(JSON.parse(window.localStorage.getItem('factors')))
-      } catch (error) {
-          throw new Error (error)          
-      }
+        try {
+            return calculateRiskAssessment(JSON.parse(window.localStorage.getItem("factors")))
+        } catch (error) {
+            throw new Error (error)          
+        }
   }
 
   ready () {
       super.ready()
       // launch fake event
-      document.addEventListener('launchEvent', () => {
-            const shadowDomNode = this.shadowRoot.querySelector('.RiskPercentage')
+      document.addEventListener("launchEvent", () => {
+            const shadowDomNode = this.shadowRoot.querySelector(".RiskPercentage")
             console.log(shadowDomNode)
                 try {
                     // retrigger calculation when another option is clicked
-                    const calculatePercentage = calculateRiskAssessment(JSON.parse(window.localStorage.getItem('factors')))
+                    const calculatePercentage = calculateRiskAssessment(JSON.parse(window.localStorage.getItem("factors")))
                     // add to h2
                     console.log(calculatePercentage)
                     shadowDomNode.textContent = `${calculatePercentage}%`
@@ -44,4 +46,4 @@ class RiskAssessment extends PolymerElement {
 
 }
 
-window.customElements.define('ra-risk-assessment', RiskAssessment);
+window.customElements.define("ra-risk-assessment", RiskAssessment)

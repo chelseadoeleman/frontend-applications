@@ -1,10 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
-import './ra-label.js'
-import '../stylesheets/shared-styles.js'
-import './ra-risk-assessment.js'
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
-import { setValueToFactor } from '../helpers/setValueToFactor.js'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import "./ra-risk-assessment.js"
+import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
+import { getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
+import { setValueToFactor } from "../helpers/setValueToFactor.js"
 
 class FormBirth extends PolymerElement {
   static get template() {
@@ -19,27 +19,27 @@ class FormBirth extends PolymerElement {
     
         <fieldset>
             <legend>Informatie over de geboorte</legend>
-                <div class="inputForm">
-                  <label for="ageMotherBirth">Leeftijd moeder bij geboorte</label>
-                    <select on-change="onChangeSelect" name="ageMotherBirth" id="ageMotherBirth">
-                        <option value="Under20">Jonger dan 20 jaar</option>
-                        <option value="Plus20">20 tot 25 jaar</option>
-                        <option value="Plus25">25 tot 30 jaar</option>
-                        <option value="Plus30">30 tot 35 jaar</option>
-                        <option value="Plus35">35 tot 40 jaar</option>
-                        <option value="Plus40">40 jaar en ouder</option>
-                    </select>
-                </div>
+            <div class="inputForm">
+                <label for="ageMotherBirth">Leeftijd moeder bij geboorte</label>
+                <select on-change="onChangeSelect" name="ageMotherBirth" id="ageMotherBirth">
+                    <option value="Under20">Jonger dan 20 jaar</option>
+                    <option value="Plus20">20 tot 25 jaar</option>
+                    <option value="Plus25">25 tot 30 jaar</option>
+                    <option value="Plus30">30 tot 35 jaar</option>
+                    <option value="Plus35">35 tot 40 jaar</option>
+                    <option value="Plus40">40 jaar en ouder</option>
+                </select>
+            </div>
 
             <div class="inputForm">
                 <label for="ageFatherBirth">Leeftijd vader bij geboorte</label>
-                    <select on-change="onChangeSelect" name="ageFatherBirth" id="ageFatherBirth">
-                        <option value="Under20">Jonger dan 25 jaar</option>
-                        <option value="Plus20">25 tot 30 jaar</option>
-                        <option value="Plus25">30 tot 35 jaar</option>
-                        <option value="Plus35">35 tot 40 jaar</option>
-                        <option value="Plus40">40 jaar en ouder</option>
-                    </select>
+                <select on-change="onChangeSelect" name="ageFatherBirth" id="ageFatherBirth">
+                    <option value="Under20">Jonger dan 25 jaar</option>
+                    <option value="Plus20">25 tot 30 jaar</option>
+                    <option value="Plus25">30 tot 35 jaar</option>
+                    <option value="Plus35">35 tot 40 jaar</option>
+                    <option value="Plus40">40 jaar en ouder</option>
+                </select>
             </div> 
 
             <div class="inputForm">
@@ -60,7 +60,7 @@ class FormBirth extends PolymerElement {
             </div>
 
         </fieldset>
-    `;
+    `
   }
 
   onChangeSelect (event) {
@@ -69,7 +69,7 @@ class FormBirth extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "birth");
+    setNewLocalStorage(inputName, selectedValue, "birth")
 
     if (inputName === "ageMotherBirth") {
         if (selectedValue === "Under20") {
@@ -150,4 +150,4 @@ class FormBirth extends PolymerElement {
 }
 }
 
-window.customElements.define('ra-form-birth', FormBirth);
+window.customElements.define("ra-form-birth", FormBirth)

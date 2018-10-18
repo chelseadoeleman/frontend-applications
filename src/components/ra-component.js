@@ -1,9 +1,9 @@
-import {PolymerElement, html} from '@polymer/polymer/polymer-element.js';
+import {PolymerElement, html} from "@polymer/polymer/polymer-element.js"
 
 export class Component extends PolymerElement {
   constructor() {
-    super();
-    console.log('I\'m a custom-element.');
+    super()
+    console.log('I\'m a custom-element.')
   }
   static get template() {
     return html`
@@ -31,4 +31,4 @@ export class Component extends PolymerElement {
     `;
   }
 }
-customElements.define('ra-component', Component);
+customElements.define("ra-component", Component)

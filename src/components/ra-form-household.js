@@ -1,10 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
-import './ra-label.js'
-import '../stylesheets/shared-styles.js'
-import './ra-risk-assessment.js'
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
-import { getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
-import { setValueToFactor } from '../helpers/setValueToFactor.js'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import "./ra-risk-assessment.js"
+import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
+import { getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
+import { setValueToFactor } from "../helpers/setValueToFactor.js"
 
 class FormHousehold extends PolymerElement {
   static get template() {
@@ -54,7 +54,7 @@ class FormHousehold extends PolymerElement {
                 </div>
 
         </fieldset>
-    `;
+    `
   }
 
   onChangeSelect (event) {
@@ -128,7 +128,7 @@ class FormHousehold extends PolymerElement {
         // acces via shadowRoot html elements with inputNames
         const select = this.shadowRoot.getElementById(inputNames)
         // get local storage 
-        const valueLocalStorage = getLocalStorageValue('household', inputNames)
+        const valueLocalStorage = getLocalStorageValue("household", inputNames)
         console.log(valueLocalStorage)
 
         if (valueLocalStorage) {
@@ -138,4 +138,4 @@ class FormHousehold extends PolymerElement {
 }
 }
 
-window.customElements.define('ra-form-household', FormHousehold);
+window.customElements.define("ra-form-household", FormHousehold)

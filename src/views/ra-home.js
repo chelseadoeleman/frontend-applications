@@ -1,7 +1,7 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '../components/ra-component.js';
-import '../components/ra-property.js';
-import '../stylesheets/shared-styles.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "../components/ra-component.js"
+import "../components/ra-property.js"
+import "../stylesheets/shared-styles.js"
 
 class Homeview extends PolymerElement {
   static get template() {
@@ -22,14 +22,14 @@ class Homeview extends PolymerElement {
         <ra-property greeting="hoi"></ra-property>
         <button on-click="clickReset">Begin opnieuw met invullen</button> 
       </div>
-    `;
+    `
   }
 
   clickReset() {
-    window.localStorage.clear();
-    location.reload();
+    window.localStorage.clear()
+    location.reload()
   }
 
 }
 
-window.customElements.define('ra-home', Homeview);
+window.customElements.define("ra-home", Homeview)

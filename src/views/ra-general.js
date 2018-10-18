@@ -1,6 +1,6 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '../stylesheets/shared-styles.js';
-import '../components/ra-form-general.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "../stylesheets/shared-styles.js"
+import "../components/ra-form-general.js"
 
 class General extends PolymerElement {
   static get template() {
@@ -16,8 +16,8 @@ class General extends PolymerElement {
       <form action="#" method-"post">
         <ra-form-general></ra-form-general>
       </form>
-    `;
+    `
   }
 }
 
-window.customElements.define('ra-general', General);
+window.customElements.define("ra-general", General)

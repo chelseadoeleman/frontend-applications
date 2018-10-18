@@ -1,10 +1,10 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
 import "./ra-label.js"
 import "../stylesheets/shared-styles.js"
-import './ra-risk-assessment.js'
+import "./ra-risk-assessment.js"
 import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
 import { getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
-import { setValueToFactor } from '../helpers/setValueToFactor.js'
+import { setValueToFactor } from "../helpers/setValueToFactor.js"
 
 
 class FormGeneral extends PolymerElement {
@@ -63,19 +63,19 @@ class FormGeneral extends PolymerElement {
               </select>
             </div>
         </fieldset>
-    `;
+    `
   }
 
  
   onChangeSelect (event) {
-    //   alternative: const target = event.target;
+    //   alternative: const target = event.target
     const { target } = event
-    //   alternative: const options = event.options;
+    //   alternative: const options = event.options
     const { options } = target
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "general");
+    setNewLocalStorage(inputName, selectedValue, "general")
 
     if (inputName === "genderKid") {
       if (selectedValue === "man") {
@@ -142,4 +142,4 @@ class FormGeneral extends PolymerElement {
 
 }
 
-window.customElements.define("ra-form-general", FormGeneral);
+window.customElements.define("ra-form-general", FormGeneral)

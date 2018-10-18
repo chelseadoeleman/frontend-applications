@@ -1,10 +1,10 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
-import './ra-label.js'
-import '../stylesheets/shared-styles.js'
-import './ra-risk-assessment.js'
-import { setNewLocalStorage } from '../helpers/setNewLocalStorage.js'
-import {getLocalStorageValue } from '../helpers/getLocalStorageValue.js'
-import { setValueToFactor } from '../helpers/setValueToFactor.js'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "./ra-label.js"
+import "../stylesheets/shared-styles.js"
+import "./ra-risk-assessment.js"
+import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
+import {getLocalStorageValue } from "../helpers/getLocalStorageValue.js"
+import { setValueToFactor } from "../helpers/setValueToFactor.js"
 
 class FormSocialParticipation extends PolymerElement {
   static get template() {
@@ -79,7 +79,7 @@ class FormSocialParticipation extends PolymerElement {
             </div>
       </fieldset> 
 
-    `;
+    `
   }
   onChangeSelect (event) {
     const { target } = event
@@ -87,7 +87,7 @@ class FormSocialParticipation extends PolymerElement {
     const { name: inputName } = target
     const selectedValue = options[target.selectedIndex].value
 
-    setNewLocalStorage(inputName, selectedValue, "socialParticipation");
+    setNewLocalStorage(inputName, selectedValue, "socialParticipation")
 
     if (inputName === "socialParticipationFather") {
         if (selectedValue === "work") {
@@ -143,4 +143,4 @@ class FormSocialParticipation extends PolymerElement {
 }
 }
 
-window.customElements.define('ra-form-socialparticipation', FormSocialParticipation);
+window.customElements.define("ra-form-socialparticipation", FormSocialParticipation)

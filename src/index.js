@@ -1,26 +1,26 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js'
-import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js'
-import '@polymer/app-layout/app-drawer/app-drawer.js'
-import '@polymer/app-layout/app-drawer-layout/app-drawer-layout.js'
-import '@polymer/app-layout/app-header/app-header.js'
-import '@polymer/app-layout/app-header-layout/app-header-layout.js'
-import '@polymer/app-layout/app-scroll-effects/app-scroll-effects.js'
-import '@polymer/app-layout/app-toolbar/app-toolbar.js'
-import '@polymer/app-route/app-location.js'
-import '@polymer/app-route/app-route.js'
-import '@polymer/iron-pages/iron-pages.js'
-import '@polymer/iron-selector/iron-selector.js'
-import '@polymer/paper-icon-button/paper-icon-button.js'
-import './components/my-icons.js'
-import { riskAssessmentToWindow } from './helpers/RiskAssessmentToWindow.js'
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import { setPassiveTouchGestures, setRootPath } from "@polymer/polymer/lib/utils/settings.js"
+import "@polymer/app-layout/app-drawer/app-drawer.js"
+import "@polymer/app-layout/app-drawer-layout/app-drawer-layout.js"
+import "@polymer/app-layout/app-header/app-header.js"
+import "@polymer/app-layout/app-header-layout/app-header-layout.js"
+import "@polymer/app-layout/app-scroll-effects/app-scroll-effects.js"
+import "@polymer/app-layout/app-toolbar/app-toolbar.js"
+import "@polymer/app-route/app-location.js"
+import "@polymer/app-route/app-route.js"
+import "@polymer/iron-pages/iron-pages.js"
+import "@polymer/iron-selector/iron-selector.js"
+import "@polymer/paper-icon-button/paper-icon-button.js"
+import "./components/my-icons.js"
+import { riskAssessmentToWindow } from "./helpers/RiskAssessmentToWindow.js"
 
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
-setPassiveTouchGestures(true);
+setPassiveTouchGestures(true)
 
 // Set Polymer's root path to the same value we passed to our service worker
 // in `index.html`.
-setRootPath(MyAppGlobals.rootPath);
+setRootPath(MyAppGlobals.rootPath)
 
 window.addEventListener("load", () => {
   const data = window.localStorage.getItem("data") || []
@@ -75,8 +75,11 @@ window.addEventListener("load", () => {
 
       }
   ]
-  window.localStorage.setItem("data", JSON.stringify(dataInput))
+
+    window.localStorage.setItem("data", JSON.stringify(dataInput))
+  
   }
+
   riskAssessmentToWindow() 
 
 })
@@ -186,7 +189,7 @@ class RisicoApp extends PolymerElement {
           </iron-pages>
         </app-header-layout>
       </app-drawer-layout>
-    `;
+    `
   }
 
   static get properties() {
@@ -203,7 +206,7 @@ class RisicoApp extends PolymerElement {
 
   static get observers() {
     return [
-      '_routePageChanged(routeData.page)'
+      "_routePageChanged(routeData.page)"
     ];
   }
 
@@ -213,16 +216,16 @@ class RisicoApp extends PolymerElement {
      // If no page was found in the route data, page will be an empty string.
      // Show 'home' in that case. And if the page doesn't exist, show 'view404'.
     if (!page) {
-      this.page = 'home';
-    } else if (['home', 'general', 'birth', 'career', 'household', 'mentalHealth', 'socialParticipation', 'law'].indexOf(page) !== -1) {
-      this.page = page;
+      this.page = "home";
+    } else if (["home", "general", "birth", "career", "household", "mentalHealth", "socialParticipation", "law"].indexOf(page) !== -1) {
+      this.page = page
     } else {
-      this.page = '404';
+      this.page = "404"
     }
 
     // Close a non-persistent drawer when the page & route are changed.
     if (!this.$.drawer.persistent) {
-      this.$.drawer.close();
+      this.$.drawer.close()
     }
   }
 
@@ -233,34 +236,34 @@ class RisicoApp extends PolymerElement {
     // statement, so break it up.
     switch (page) {
       case 'home':
-        import('./views/ra-home.js');
-        break;
+        import('./views/ra-home.js')
+        break
       case 'general':
-        import('./views/ra-general.js');
-        break;
+        import('./views/ra-general.js')
+        break
       case 'birth':
-        import('./views/ra-birth.js');
-        break;
+        import('./views/ra-birth.js')
+        break
       case 'career':
-        import('./views/ra-career.js');
-        break;
+        import('./views/ra-career.js')
+        break
       case 'household':
-        import('./views/ra-household.js');
-        break;
+        import('./views/ra-household.js')
+        break
       case 'mentalHealth':
-        import('./views/ra-mentalhealth.js');
-        break;
+        import('./views/ra-mentalhealth.js')
+        break
       case 'socialParticipation':
-        import('./views/ra-socialparticipation.js');
-        break;
+        import('./views/ra-socialparticipation.js')
+        break
       case 'law':
-        import('./views/ra-law.js');
-        break;
+        import('./views/ra-law.js')
+        break
       case '404':
-        import('./views/ra-404.js');
-        break;
+        import('./views/ra-404.js')
+        break
     }
   }
 }
 
-window.customElements.define('my-app', RisicoApp);
+window.customElements.define('my-app', RisicoApp)

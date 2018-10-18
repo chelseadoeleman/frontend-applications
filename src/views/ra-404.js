@@ -1,4 +1,4 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
 
 class MyView404 extends PolymerElement {
   static get template() {
@@ -12,8 +12,8 @@ class MyView404 extends PolymerElement {
       </style>
 
       Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
-    `;
+    `
   }
 }
 
-window.customElements.define('ra-404', MyView404);
+window.customElements.define("ra-404", MyView404)

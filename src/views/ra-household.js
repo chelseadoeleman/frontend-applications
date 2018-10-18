@@ -1,6 +1,6 @@
-import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '../stylesheets/shared-styles.js';
-import '../components/ra-form-household';
+import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
+import "../stylesheets/shared-styles.js"
+import "../components/ra-form-household"
 
 class Household extends PolymerElement {
   static get template() {
@@ -16,8 +16,8 @@ class Household extends PolymerElement {
       <form action="#" method-"post">
         <ra-form-household></ra-form-household>
       </form>
-    `;
+    `
   }
 }
 
-window.customElements.define('ra-household', Household);
+window.customElements.define("ra-household", Household)
