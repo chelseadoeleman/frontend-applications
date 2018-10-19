@@ -5,17 +5,14 @@
 
 ## How to install
 Before installing make sure you have installed the latest version of node.js
-```bash
-npm install -g polymer-cli
-```
 Choose or make a new directory.
 Load the template into your directory.
 ```bash
-polymer init polymer-3-starter-kit
+git clone https://github.com/chelseadoeleman/polymer.git
 ```
 
 Make sure you have the latest version of npm.
-Install the dependencies in [package.json](./package.json)
+Install the dependencies in [package.json](package.json)
 ```bash
 npm install
 ```
@@ -79,7 +76,7 @@ The forms took up more time than i originally had imagined. I also had to make t
 I've also worked on my concept again because of the presentations in the morning, which gave me very useful insights into the problem. It was also very interesting to hear what their working process looked like and wether they would like to have a digital tool to help them make, sometimes tough, choices. And the tool could also serve as an unbiased to help youth workers. However not all of their wishes are possible to realize before Friday, but can definitely be included in my sketches.
 
 #### Day 7 Polymer | 16 October 2018
-CSS is an absolute nightmare in Polymer. Because I've used a boilerplate it is not possible to style all elements, by just calling them by their classname or id. This is because of the shadowRoot. which is included on several HTML elements. By using `--` before an element it is possible to access those, but you have to go through every layer before you get to your specific element. And you have to use it in that specific component/page. Together with Maikel we've worked on pushing our HTML form values into to the local storage. This took up a lot our time and for me to mostly understand the code, but in the end it worked! Then I got to explain my code to Linda which gave me an even better understanding about the code.
+CSS is an absolute nightmare in Polymer. Because I've used a boilerplate it is not possible to style all elements, by just calling them by their classname or id. This is because of the shadowRoot. which is included on several HTML elements. By using `--` before an element it is possible to access those, but you have to go through every layer before you get to your specific element. And you have to use it in that specific component/page. Together with [Maikel](https://github.com/Maikxx/polymer) we've worked on pushing our HTML form values into to the local storage. This took up a lot our time and for me to mostly understand the code, but in the end it worked! Then I got to explain my code to Linda which gave me an even better understanding about the code.
 
 We have created functions that go into a different map called helpers, because these are functions that needed to be used multiple times in different components. In this case we do not write double code.
 
@@ -90,4 +87,7 @@ On another note this day we have found out it is not possible to use states in P
 
 #### Day 9 Polymer | 18 October 2018
 Today was mostly making sure the Risk Assessment worked on every component and updated real time. On the way I ran into a lot of different errors, but in the end I resolved all of them. In the morning I've mostly tried to explain the risk assessment calculator to Linda and Jessie, so I could make sure I understood the code better than I did before. Around midday I have spent time into my documentation and styling. 
+
+## License
+This repository is licensed as [MIT](license) by [Chelsea Doeleman](https://github.com/chelseadoeleman), 2018
 
