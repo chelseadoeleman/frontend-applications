@@ -36,14 +36,20 @@ Then you get to the explanation page
 
 ![explanation page](./documents/explanation.jpg)
 
+
 For every specific categorie there are different questions that need to answered. These question can have a have a certain value that are influenced by different categories. 
+
 ![select page](./documents/select.jpg)
 
+
 When a risk assessment poses a warning the text above the risk assessment percentage will change and tell you wether this case migth propose a high risk or no risk at all.
+
 ![mid warning case](./documents/middelWarnings.jpg)
 ![high warning case](./documents/highWarnings.jpg)
 
-In the end the user gets to see all the different factors the risk assessment percentage is influenced by. And can add comments to explain certain factors or comment or why they think it shouldn't influence the percentage, because of certain circumstances. The youth worker can also add comments for parents, to give them better insight into their research. 
+
+In the end the user gets to see all the different factors the risk assessment percentage is influenced by. And can add comments to explain certain factors or comment or why they think it shouldn't influence the percentage, because of certain circumstances. The youth worker can also add comments for parents, to give them better insight into their research.
+ 
 ![show factors](./documents/card.jpg)
 ![show factors and comments](./documents/comments.jpg)
 
