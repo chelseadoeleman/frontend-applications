@@ -103,7 +103,7 @@ I've also worked on my concept again because of the presentations in the morning
 #### Day 7 Polymer | 16 October 2018
 CSS is an absolute nightmare in Polymer. Because I've used a boilerplate it is not possible to style all elements, by just calling them by their classname or id. This is because of the shadowRoot. which is included on several HTML elements. By using `--` before an element it is possible to access those, but you have to go through every layer before you get to your specific element. And you have to use it in that specific component/page. Together with [Maikel](https://github.com/Maikxx/polymer) we've worked on pushing our HTML form values into to the local storage. This took up a lot our time and for me to mostly understand the code, but in the end it worked! Then I got to explain my code to Linda which gave me an even better understanding about the code.
 
-We have created functions that go into a different map called helpers, because these are functions that needed to be used multiple times in different components. In this case we do not write double code.
+We have created logical functions that go into a different map called helpers, because these are functions that need to be used multiple times in different components. In this case we do not write double code.
 
 #### Day 8 Polymer | 17 October 2018
 In the morning we had a guest lecture by Nienke about why you would want to use a framework. I found this lecture first of all very interesting and second of all also entertaining.
