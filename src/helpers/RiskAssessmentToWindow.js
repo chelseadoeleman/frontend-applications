@@ -1,3 +1,7 @@
+// Shoutout to Maikel van Veen
+// function that writes 'factors' to the window.localstorage
+// which are empty when the page is loaded and can be overwritten by other functions 
+// this in done index.js where this function will be imported
 export const riskAssessmentToWindow = () => {
     const factors = window.localStorage.getItem('factors') || []
 

@@ -33,6 +33,7 @@ class RiskAssessment extends PolymerElement {
     this.riskText = "Laag risico"
   }
 
+  // Shoutout to Maikel van Veen
   calculateRiskPercentage () {
         try {
             return calculateRiskAssessment(JSON.parse(window.localStorage.getItem("factors")))
@@ -44,15 +45,18 @@ class RiskAssessment extends PolymerElement {
   // access to shadow Dom tree, call super to override ready in shadow Dom tree.
   ready () {
       super.ready()
-      // launch fake event
+      // launch fake event to recalculate the value in factor to show percentage in real-time
       document.addEventListener("launchEvent", () => {
             const shadowDomNode = this.shadowRoot.querySelector(".RiskPercentage")
                 try {
                     // retrigger calculation when another option is clicked
                     const calculatePercentage = calculateRiskAssessment(JSON.parse(window.localStorage.getItem("factors")))
                     // add to h2
+                    // change text above percentage with information about that percentage
+                    // if for example the percentage poises a high risk
                     const shadowDomNodeText = this.shadowRoot.querySelector(".riskWarning")
-                        if (calculatePercentage >= 5) {
+                    // checks value of calculatepercentage and adds text    
+                    if (calculatePercentage >= 5) {
                             shadowDomNodeText.textContent = `${"Hoog risico"}`
                         } else if (calculatePercentage >= 2) {
                             shadowDomNodeText.textContent = `${"Middelmatig risico"}`

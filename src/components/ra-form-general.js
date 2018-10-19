@@ -65,7 +65,7 @@ class FormGeneral extends PolymerElement {
     `
   }
 
- 
+  // Shoutout to Maikel van Veen
   onChangeSelect (event) {
     //   alternative: const target = event.target
     const { target } = event

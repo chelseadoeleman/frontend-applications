@@ -22,9 +22,12 @@ setPassiveTouchGestures(true)
 // in `index.html`.
 setRootPath(MyAppGlobals.rootPath)
 
+// Shoutout to Maikel van Veen
+// on page load set data and factors in localStorage
 window.addEventListener("load", () => {
   const data = window.localStorage.getItem("data") || []
 
+  // when the data array is not longer than 0 set these inputs into localStorage.
   if (!data.length > 0) {
     const dataInput = [
       {
@@ -79,7 +82,7 @@ window.addEventListener("load", () => {
     window.localStorage.setItem("data", JSON.stringify(dataInput))
   
   }
-
+  // add riskAssessmentToWindow function, fires also on load
   riskAssessmentToWindow() 
 
 })
@@ -233,35 +236,35 @@ class RisicoApp extends PolymerElement {
 
   _pageChanged(page) {
     switch (page) {
-      case 'home':
-        import('./views/ra-home.js')
+      case "home":
+        import("./views/ra-home.js")
         break
-      case 'general':
-        import('./views/ra-general.js')
+      case "general":
+        import("./views/ra-general.js")
         break
-      case 'birth':
-        import('./views/ra-birth.js')
+      case "birth":
+        import("./views/ra-birth.js")
         break
-      case 'career':
-        import('./views/ra-career.js')
+      case "career":
+        import("./views/ra-career.js")
         break
-      case 'household':
-        import('./views/ra-household.js')
+      case "household":
+        import("./views/ra-household.js")
         break
-      case 'mentalHealth':
-        import('./views/ra-mentalhealth.js')
+      case "mentalHealth":
+        import("./views/ra-mentalhealth.js")
         break
-      case 'socialParticipation':
-        import('./views/ra-socialparticipation.js')
+      case "socialParticipation":
+        import("./views/ra-socialparticipation.js")
         break
-      case 'law':
-        import('./views/ra-law.js')
+      case "law":
+        import("./views/ra-law.js")
         break
-      case '404':
-        import('./views/ra-404.js')
+      case "404":
+        import("./views/ra-404.js")
         break
     }
   }
 }
 
-window.customElements.define('my-app', RisicoApp)
+window.customElements.define("my-app", RisicoApp)

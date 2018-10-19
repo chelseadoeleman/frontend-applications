@@ -1,3 +1,4 @@
+// Shoutout to Maikel van Veen
 export const calculateRiskAssessment = (values) => {
     if(!values) {
         // always return 0 when there are no inputNames with factors
@@ -10,6 +11,7 @@ export const calculateRiskAssessment = (values) => {
         // 0 is startvalue 
         .reduce((calculator, currentValue) => calculator + currentValue, 0)
 
+    // Shoutout to Folkert-Jan, Daniel 1 and Tim for configuring the formula to JS
     return Number((1 / (1 + Math.exp(-1 * (-8.57219 + totalValue))) * 100).toFixed(2))
     
 }
