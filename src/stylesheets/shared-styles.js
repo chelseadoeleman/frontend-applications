@@ -1,6 +1,6 @@
-import '@polymer/polymer/polymer-element.js';
+import "@polymer/polymer/polymer-element.js"
 
-const $_documentContainer = document.createElement('template');
+const $_documentContainer = document.createElement("template")
 $_documentContainer.innerHTML = `<dom-module id="shared-styles">
   <template>
     <style>
@@ -147,6 +147,6 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
 
     </style>
   </template>
-</dom-module>`;
+</dom-module>`
 
-document.head.appendChild($_documentContainer.content);
+document.head.appendChild($_documentContainer.content)

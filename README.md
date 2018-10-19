@@ -1,6 +1,9 @@
 # Risk Assessment App
 ###### In this application the risk of out-of-home-placement will be calculated as an auxiliary tool for youth-workers.
 
+Screenshot of the application now, due to deadlines, this won't be the final concept.
+
+![Screenshot application](./documents/screenshot.png)
 
 
 ## How to install
