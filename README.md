@@ -28,7 +28,7 @@ The "Risicotaxatie berekenen" application is an application for youth workers to
 
 The application contains different questions about the child in concern. Regarding education, household, parents, etc. Each factor weighs differently when calculating the risk assessment. In the application the risk assessment will be calculated real-time to get a fast indication on how severe a case might be.  
 
-First you have a login page. The page is accessable for youth workers and for parents, to solve the tranparancy problem.
+First you have a login page. The page is accessable to youth workers and parents, to solve the tranparancy problem.
 
 ![login page](./documents/login.jpg)
 
@@ -37,7 +37,7 @@ Then you get to the explanation page
 ![explanation page](./documents/explanation.jpg)
 
 
-For every specific categorie there are different questions that need to answered. These question can have a have a certain value that are influenced by different categories. 
+For every specific categorie there are different questions that need to answered. These question can have a have a certain value that are influenced by different factors. 
 
 ![select page](./documents/select.jpg)
 
@@ -49,7 +49,7 @@ When a risk assessment poses a warning the text above the risk assessment percen
 
 
 In the end the user gets to see all the different factors the risk assessment percentage is influenced by. And can add comments to explain certain factors or comment or why they think it shouldn't influence the percentage, because of certain circumstances. The youth worker can also add comments for parents, to give them better insight into their research.
- 
+
 ![show factors](./documents/card.jpg)
 ![show factors and comments](./documents/comments.jpg)
 
