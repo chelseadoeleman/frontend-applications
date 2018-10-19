@@ -3,7 +3,7 @@
 
 Screenshot of the application now, due to deadlines, this won't be the final concept.
 
-![Screenshot application](./documents/screensh0t.png)
+![Screenshot application](./documents/screenshot.png)
 
 
 ## How to install
