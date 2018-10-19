@@ -1,6 +1,6 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
 import "../stylesheets/shared-styles.js"
-import "../components/ra-form-household"
+import "../components/ra-form-household.js"
 
 class Household extends PolymerElement {
   static get template() {

@@ -31,9 +31,14 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         text-align: center;
         color: white;
         border-radius: 50%;
-        background: lightblue;
+        background: #a9bed8;
         font-size: 30px;
         line-height: 64px;
+      }
+
+      .explanation {
+        margin: 2em;
+        max-width: 50%;
       }
 
       h1 {
@@ -46,6 +51,15 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         font-size: 5em;
         color: #ffffff;
         text-align: center;
+        font-family: mono45-headline, monospace;
+      }
+      
+      h3 {
+        font-size: 3em;
+        color: #ffffff;
+        text-align: center;
+        margin-top: 2em;
+        margin-bottom: -1.75em;
         font-family: mono45-headline, monospace;
       }
 
@@ -98,10 +112,14 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
       }
     
       button{
-        padding: .5em;
+        padding: 1em;
         border-radius: .5em;
         border-style: none;
-        background: lightblue;
+        background: #2b4370;
+        color: white;
+        font-family: 'raleway', sans-serif;
+        font-weight: bold;
+        font-size: 1em;
       } 
 
       fieldset {

@@ -1,5 +1,4 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
-import "./ra-label.js"
 import "../stylesheets/shared-styles.js"
 import "./ra-risk-assessment.js"
 import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"

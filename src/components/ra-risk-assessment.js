@@ -1,5 +1,4 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
-import "./ra-label.js"
 import "../stylesheets/shared-styles.js"
 import { calculateRiskAssessment } from "../helpers/calculateRiskAssessment"
 
@@ -10,12 +9,28 @@ class RiskAssessment extends PolymerElement {
         <style include="shared-styles">
 
         </style>
-        
+
+      
+        <h3 class="riskWarning">
+            [[riskText]]
+        </h3>
         <h2 class="RiskPercentage">
             [[calculateRiskPercentage()]]%
         </h2>
 
     `
+  }
+  static get properties() {
+    return {
+      riskText: {
+        type: String
+      }
+    }
+  }
+
+  constructor() {
+    super()
+    this.riskText = "Laag risico"
   }
 
   calculateRiskPercentage () {
@@ -26,17 +41,24 @@ class RiskAssessment extends PolymerElement {
         }
   }
 
+  // access to shadow Dom tree, call super to override ready in shadow Dom tree.
   ready () {
       super.ready()
       // launch fake event
       document.addEventListener("launchEvent", () => {
             const shadowDomNode = this.shadowRoot.querySelector(".RiskPercentage")
-            console.log(shadowDomNode)
                 try {
                     // retrigger calculation when another option is clicked
                     const calculatePercentage = calculateRiskAssessment(JSON.parse(window.localStorage.getItem("factors")))
                     // add to h2
-                    console.log(calculatePercentage)
+                    const shadowDomNodeText = this.shadowRoot.querySelector(".riskWarning")
+                        if (calculatePercentage >= 5) {
+                            shadowDomNodeText.textContent = `${"Hoog risico"}`
+                        } else if (calculatePercentage >= 2) {
+                            shadowDomNodeText.textContent = `${"Middelmatig risico"}`
+                        } else {
+                            shadowDomNodeText.textContent = `${"Laag risico"}`
+                        }
                     shadowDomNode.textContent = `${calculatePercentage}%`
                 } catch (error) {
                     throw new Error (error)

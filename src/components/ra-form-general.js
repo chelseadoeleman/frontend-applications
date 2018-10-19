@@ -1,5 +1,4 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
-import "./ra-label.js"
 import "../stylesheets/shared-styles.js"
 import "./ra-risk-assessment.js"
 import { setNewLocalStorage } from "../helpers/setNewLocalStorage.js"
@@ -23,17 +22,17 @@ class FormGeneral extends PolymerElement {
         
             <div class="inputForm">
               <label for="firstname">Voornaam</label>
-              <input name="firstname" on-change="onChangeInput" placeholder="Jane" id="firstname">
+              <input name="firstname" on-change="onChangeInput" placeholder="Kees" id="firstname">
             </div>
 
             <div class="inputForm">
               <label for="surname">Achternaam</label>
-              <input name="surname" on-change="onChangeInput" placeholder="Doe" id="surname">
+              <input name="surname" on-change="onChangeInput" placeholder="Jansen" id="surname">
             </div>
 
             <div class="inputForm">
               <label for="email">Email</label>
-              <input name="email" on-change="onChangeInput" placeholder="jane.doe@example.com" id="email">
+              <input name="email" on-change="onChangeInput" placeholder="kees.jansen@voorbeeld.nl" id="email">
             </div>
 
             <div class="inputForm">

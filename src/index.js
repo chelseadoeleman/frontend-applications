@@ -85,6 +85,7 @@ window.addEventListener("load", () => {
 })
 
 class RisicoApp extends PolymerElement {
+  // initialize shadow Dom template
   static get template() {
     return html`
       <style>
@@ -169,7 +170,7 @@ class RisicoApp extends PolymerElement {
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">Risicotaxatie voor jeugdhulp</div>
+              <div main-title="">Risicotaxatie berekenen</div>
             </app-toolbar>
           </app-header>
 
@@ -192,6 +193,7 @@ class RisicoApp extends PolymerElement {
     `
   }
 
+  // declare properties
   static get properties() {
     return {
       page: {
@@ -230,10 +232,6 @@ class RisicoApp extends PolymerElement {
   }
 
   _pageChanged(page) {
-    // Import the page component on demand.
-    //
-    // Note: `polymer build` doesn't like string concatenation in the import
-    // statement, so break it up.
     switch (page) {
       case 'home':
         import('./views/ra-home.js')
