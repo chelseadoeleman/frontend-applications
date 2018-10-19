@@ -116,6 +116,13 @@ On another note this day we have found out it is not possible to use states in P
 #### Day 9 Polymer | 18 October 2018
 Today was mostly making sure the Risk Assessment worked on every component and updated real time. On the way I ran into a lot of different errors, but in the end I resolved all of them. In the morning I've mostly tried to explain the risk assessment calculator to Linda and Jessie, so I could make sure I understood the code better than I did before. Around midday I have spent time into my documentation and styling. 
 
+## Future adaptations in my code
+* Seperate css files and no inline and html
+* For youth workers to be able to switch between different profiles
+* Linting
+* Media queries, so it will be accessable on multiple devices
+* For other youth workers to be able to access these files, but not be able to see the person in concern, because of privacy matters.
+
 ## License
 This repository is licensed as [MIT](license) by [Chelsea Doeleman](https://github.com/chelseadoeleman), 2018
 
