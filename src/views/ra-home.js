@@ -1,6 +1,4 @@
 import { PolymerElement, html } from "@polymer/polymer/polymer-element.js"
-import "../components/ra-component.js"
-import "../components/ra-property.js"
 import "../stylesheets/shared-styles.js"
 
 class Homeview extends PolymerElement {

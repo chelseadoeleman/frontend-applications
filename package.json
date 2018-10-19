@@ -22,10 +22,6 @@
     "@polymer/iron-selector": "^3.0.0-pre.15",
     "@polymer/paper-icon-button": "^3.0.0-pre.15",
     "@polymer/polymer": "^3.0.0",
-    "@vaadin/vaadin-dropdown-menu": "^1.2.0-beta1",
-    "@vaadin/vaadin-form-layout": "^2.1.0",
-    "@vaadin/vaadin-item": "^2.1.0",
-    "@vaadin/vaadin-list-box": "^1.1.0",
     "@webcomponents/webcomponentsjs": "^2.0.0"
   },
   "devDependencies": {
