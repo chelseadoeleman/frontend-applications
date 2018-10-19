@@ -173,7 +173,7 @@ class RisicoApp extends PolymerElement {
           <app-header slot="header" condenses="" reveals="" effects="waterfall">
             <app-toolbar>
               <paper-icon-button icon="my-icons:menu" drawer-toggle=""></paper-icon-button>
-              <div main-title="">Risicotaxatie berekenen</div>
+              <div main-title="">Risicotaxatie berekenen voor jeugdhulpverleners</div>
             </app-toolbar>
           </app-header>
 

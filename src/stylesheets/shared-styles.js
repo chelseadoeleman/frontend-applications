@@ -33,12 +33,23 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         border-radius: 50%;
         background: #a9bed8;
         font-size: 30px;
-        line-height: 64px;
+        line-height: 60px;
+        min-width: 64px;
+        margin: 1em;
       }
 
       .explanation {
         margin: 2em;
-        max-width: 50%;
+        max-width: 60%;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+      }
+
+      .row p {
+        font-weight: bold;
       }
 
       h1 {
@@ -120,6 +131,8 @@ $_documentContainer.innerHTML = `<dom-module id="shared-styles">
         font-family: 'raleway', sans-serif;
         font-weight: bold;
         font-size: 1em;
+        margin-left: .75em;
+        width: 100%;
       } 
 
       fieldset {
